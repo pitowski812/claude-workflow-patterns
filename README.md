@@ -30,6 +30,16 @@ Cheap scouts sweep independent angles in parallel → a stronger model
 deep-reads and verifies sources → synthesis → a completeness critic asks
 "what's missing?" whose output seeds the next round.
 
+### `knowledge-harvest.js` — write, then adversarially verify
+Builds a reference library from a topic list. Per topic: one agent researches
+the live web and writes a guide; a **different** agent verifies every command,
+API, and version against current reality and edits the file to fix what's
+wrong. A guide an AI wrote is a *claim*; a guide a second agent verified is
+*evidence*. Runs on cheap models. Used to build a 37-guide technical
+curriculum — the review pass caught real defects (a nonexistent AWS model ID,
+an API that `AttributeError`s, a broken Redis command, dozens of stale version
+pins) before any human read them.
+
 ## Principles these encode
 1. Three-state results everywhere: pass / fail / **couldn't-check** — an
    infrastructure failure must never look like a clean result.
